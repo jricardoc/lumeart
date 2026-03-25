@@ -98,19 +98,19 @@ const Products = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-[#080D1A] w-full pt-40 pb-32">
-       <div className="max-w-7xl mx-auto px-6">
-          <header className="mb-24">
-            <h1 className="page-title-anim opacity-0 text-5xl md:text-7xl lg:text-8xl font-black font-serif text-transparent bg-clip-text bg-gradient-to-r from-white via-[#D4AF37] to-[#FF8C00] tracking-tight">
+    <div ref={containerRef} className="min-h-screen bg-[#080D1A] w-full pt-32 md:pt-40 pb-20 md:pb-32">
+       <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <header className="mb-16 md:mb-24">
+            <h1 className="page-title-anim opacity-0 text-4xl md:text-7xl lg:text-8xl font-black font-serif text-transparent bg-clip-text bg-gradient-to-r from-white via-[#D4AF37] to-[#FF8C00] tracking-tight">
                O Arsenal Sagrado
             </h1>
-            <p className="page-title-anim opacity-0 mt-8 text-slate-400 font-light text-lg md:text-xl max-w-2xl border-l-2 border-[#D4AF37]/30 pl-6">
+            <p className="page-title-anim opacity-0 mt-6 md:mt-8 text-slate-400 font-light text-base md:text-xl max-w-2xl border-l-2 border-[#D4AF37]/30 pl-4 md:pl-6">
                <span className="block mb-2">Relíquias forjadas da imaginação para a matéria.</span>
                <span className="block">Explore nossas lâminas, cinéticas e artefatos de precisão absoluta.</span>
             </p>
           </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12" style={{ perspective: '1200px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12" style={{ perspective: '1200px' }}>
              {products.map((product) => (
                 <div 
                    key={product.id}
@@ -118,7 +118,7 @@ const Products = () => {
                    style={{ transformOrigin: 'center bottom' }}
                 >
                    {/* Card Container */}
-                   <div className="relative w-full h-[550px] rounded-2xl bg-gradient-to-b from-[#111A33] to-[#080D1A] border border-[#D4AF37]/10 overflow-hidden flex flex-col transition-all duration-500 ease-out hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(212,175,55,0.15)] hover:border-[#D4AF37]/50">
+                   <div className="relative w-full h-[450px] md:h-[550px] rounded-2xl bg-gradient-to-b from-[#111A33] to-[#080D1A] border border-[#D4AF37]/10 overflow-hidden flex flex-col transition-all duration-500 ease-out hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(212,175,55,0.15)] hover:border-[#D4AF37]/50">
                       
                       {/* Image Area */}
                       <div className="relative h-[50%] w-full overflow-hidden shrink-0">

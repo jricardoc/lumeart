@@ -1,4 +1,5 @@
 import { Mail, Globe, MessageCircle, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
   return (
@@ -23,10 +24,10 @@ export const Footer = () => {
           <div>
             <h4 className="text-white font-bold mb-6">Navegação</h4>
             <ul className="space-y-4 text-slate-400">
-              <li><a href="#" className="hover:text-[#D4AF37] transition-colors">Início</a></li>
-              <li><a href="#portfolio" className="hover:text-[#D4AF37] transition-colors">Portfólio</a></li>
-              <li><a href="#services" className="hover:text-[#D4AF37] transition-colors">Serviços</a></li>
-              <li><a href="#about" className="hover:text-[#D4AF37] transition-colors">Sobre</a></li>
+              <li><Link to="/" className="hover:text-[#D4AF37] transition-colors">Início</Link></li>
+              <li><Link to="/sobre" className="hover:text-[#D4AF37] transition-colors">A Forja</Link></li>
+              <li><Link to="/produtos" className="hover:text-[#D4AF37] transition-colors">Vitrine Magnífica</Link></li>
+              <li><Link to="/contato" className="hover:text-[#D4AF37] transition-colors">Conexão</Link></li>
             </ul>
           </div>
 

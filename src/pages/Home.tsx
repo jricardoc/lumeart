@@ -121,19 +121,21 @@ const Home = () => {
               A Nova Era da Manufatura Aditiva
             </p>
             
-            <h2 className="hero-el text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-12 opacity-0">
+            <h2 className="hero-el text-5xl md:text-8xl lg:text-9xl font-black leading-[1.0] md:leading-[0.9] tracking-tighter mb-8 md:mb-12 opacity-0">
               Forjando <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#FF8C00] to-[#00B4D8]">
                 Realidade
               </span>
             </h2>
 
-            <div className="hero-el flex flex-col md:flex-row md:items-center gap-8 border-l border-[#00B4D8]/30 pl-8 ml-2 opacity-0">
-              <p className="text-xl md:text-2xl text-slate-400 font-light max-w-xl">
+            <div className="hero-el flex flex-col md:flex-row md:items-center gap-6 md:gap-8 border-l border-[#00B4D8]/30 pl-6 md:pl-8 ml-0 md:ml-2 opacity-0">
+               <p className="text-lg md:text-2xl text-slate-400 font-light max-w-xl">
                 Elevamos o filamento ao nível do divino. De protótipos enigmáticos a esculturas vitrificadas, transformamos sua visão etérea em matéria sólida.
               </p>
               <div className="hidden lg:block w-32 h-[1px] bg-gradient-to-r from-[#D4AF37] to-transparent" />
-              <GlowButton onClick={() => window.location.href = '/produtos'}>Explorar Vitrine</GlowButton>
+              <div className="w-full md:w-auto">
+                <GlowButton onClick={() => window.location.href = '/produtos'}>Explorar Vitrine</GlowButton>
+              </div>
             </div>
           </div>
         </div>
@@ -143,17 +145,17 @@ const Home = () => {
       <section className="relative z-20 py-32 overflow-hidden">
         {/* Shard 1 */}
         <div 
-          className="shard-card rotate-left opacity-0 relative w-[110vw] -ml-[5vw] py-20 px-[10vw] mb-32 bg-gradient-to-r from-[#111A33]/90 to-[#080D1A]/90 backdrop-blur-xl border-t border-b border-[#D4AF37]/20 shadow-[0_0_50px_rgba(212,175,55,0.05)] transition-all duration-700 hover:z-30 hover:!rotate-0 hover:!scale-105"
-          style={{ clipPath: 'polygon(0 10%, 100% 0, 100% 90%, 0 100%)' }}
+          className="shard-card rotate-left opacity-0 relative w-[110vw] -ml-[5vw] py-16 md:py-20 px-8 md:px-[10vw] mb-24 md:mb-32 bg-gradient-to-r from-[#111A33]/90 to-[#080D1A]/90 backdrop-blur-xl border-t border-b border-[#D4AF37]/20 shadow-[0_0_50px_rgba(212,175,55,0.05)] transition-all duration-700 hover:z-30 hover:!rotate-0 hover:!scale-105"
+          style={{ clipPath: 'polygon(0 5%, 100% 0, 100% 95%, 0 100%)' }}
         >
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-            <div className="w-32 h-32 rounded-full border border-[#D4AF37]/30 flex items-center justify-center relative shrink-0">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-[#D4AF37]/30 flex items-center justify-center relative shrink-0">
               <div className="absolute inset-0 bg-[#D4AF37]/10 rounded-full blur-xl animate-pulse" />
-              <Settings className="w-12 h-12 text-[#D4AF37]" />
+              <Settings className="w-10 h-10 md:w-12 md:h-12 text-[#D4AF37]" />
             </div>
-            <div>
-              <h3 className="text-4xl md:text-6xl font-black font-serif text-white mb-6">Prototipagem de Vanguarda</h3>
-              <p className="text-2xl text-slate-300 font-light leading-relaxed">
+            <div className="text-center md:text-left">
+              <h3 className="text-3xl md:text-6xl font-black font-serif text-white mb-4 md:mb-6">Prototipagem de Vanguarda</h3>
+              <p className="text-lg md:text-2xl text-slate-300 font-light leading-relaxed">
                 Forjando conceitos complexos em filamentos de engenharia (PLA, PETG). Do digital para o tátil, camada por camada com a precisão de um átomo.
               </p>
             </div>
@@ -162,17 +164,17 @@ const Home = () => {
 
         {/* Shard 2 */}
         <div 
-          className="shard-card rotate-right opacity-0 relative w-[110vw] -ml-[5vw] py-20 px-[10vw] mb-32 bg-gradient-to-l from-[#111A33]/90 to-[#080D1A]/90 backdrop-blur-xl border-t border-b border-[#00B4D8]/20 shadow-[0_0_50px_rgba(0,180,216,0.05)] transition-all duration-700 hover:z-30 hover:!rotate-0 hover:!scale-105"
-          style={{ clipPath: 'polygon(0 0, 100% 10%, 100% 100%, 0 90%)' }}
+          className="shard-card rotate-right opacity-0 relative w-[110vw] -ml-[5vw] py-16 md:py-20 px-8 md:px-[10vw] mb-24 md:mb-32 bg-gradient-to-l from-[#111A33]/90 to-[#080D1A]/90 backdrop-blur-xl border-t border-b border-[#00B4D8]/20 shadow-[0_0_50px_rgba(0,180,216,0.05)] transition-all duration-700 hover:z-30 hover:!rotate-0 hover:!scale-105"
+          style={{ clipPath: 'polygon(0 0, 100% 5%, 100% 100%, 0 95%)' }}
         >
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-16 text-right">
-            <div className="w-32 h-32 rounded-full border border-[#00B4D8]/30 flex items-center justify-center relative shrink-0">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 text-center md:text-right">
+            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-[#00B4D8]/30 flex items-center justify-center relative shrink-0">
               <div className="absolute inset-0 bg-[#00B4D8]/10 rounded-full blur-xl animate-pulse" />
-              <Palette className="w-12 h-12 text-[#00B4D8]" />
+              <Palette className="w-10 h-10 md:w-12 md:h-12 text-[#00B4D8]" />
             </div>
             <div>
-              <h3 className="text-4xl md:text-6xl font-black font-serif text-white mb-6">Arte & Cenografia</h3>
-              <p className="text-2xl text-slate-300 font-light leading-relaxed">
+              <h3 className="text-3xl md:text-6xl font-black font-serif text-white mb-4 md:mb-6">Arte & Cenografia</h3>
+              <p className="text-lg md:text-2xl text-slate-300 font-light leading-relaxed">
                 Arte imersiva em filamentos especiais. Dê vida a esculturas, adereços e cenários gloriosos, dignos da prata das telas de cinema.
               </p>
             </div>
@@ -184,11 +186,11 @@ const Home = () => {
       <section className="relative z-20 py-40 px-6 max-w-7xl mx-auto">
         <SacredGeometry />
 
-        <div className="text-center mb-32 relative z-10">
-          <h2 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-[#111A33] mb-8">
+        <div className="text-center mb-20 md:mb-32 relative z-10">
+          <h2 className="text-5xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-[#111A33] mb-6 md:mb-8">
             O Alquimista
           </h2>
-          <p className="text-2xl md:text-4xl text-[#D4AF37] font-serif italic max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-4xl text-[#D4AF37] font-serif italic max-w-4xl mx-auto leading-relaxed">
             "A Jornada do Filamento: Do Calor do Fogo à Precisão do Cristal."
           </p>
         </div>
@@ -198,7 +200,7 @@ const Home = () => {
           {/* Glowing Spine Line */}
           <div className="absolute top-0 bottom-0 left-8 md:left-1/2 w-1 md:-ml-[0.5px] bg-gradient-to-b from-transparent via-[#FF8C00] to-transparent opacity-50 blur-[1px]" />
 
-          <div className="space-y-32">
+          <div className="space-y-24 md:space-y-32">
             {alchemySteps.map((step, i) => {
               const isEven = i % 2 === 0;
               return (
@@ -206,19 +208,19 @@ const Home = () => {
                   key={step.title}
                   className={`timeline-el opacity-0 flex w-full relative ${isEven ? 'md:justify-start' : 'md:justify-end'} justify-start`}
                 >
-                  <div className={`md:w-5/12 ml-20 md:ml-0 relative ${isEven ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
+                  <div className={`md:w-5/12 ml-12 md:ml-0 relative ${isEven ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
                     
                     {/* The glowing node on the spine */}
-                    <div className={`absolute top-1/2 -translate-y-1/2 ${isEven ? 'left-[-4rem] md:left-auto md:-right-[2.2rem]' : 'left-[-4rem] md:-left-[2.2rem]'} w-4 h-4 rounded-full bg-[#D4AF37] shadow-[0_0_20px_#FF8C00] z-10`} />
-                    <div className={`absolute top-1/2 -translate-y-1/2 ${isEven ? 'left-[-4rem] md:left-auto md:-right-[2.2rem]' : 'left-[-4rem] md:-left-[2.2rem]'} w-12 h-12 border border-[#FF8C00]/30 rounded-full animate-ping z-0`} />
+                    <div className={`absolute top-0 md:top-1/2 md:-translate-y-1/2 ${isEven ? 'left-[-3rem] md:left-auto md:-right-[2.2rem]' : 'left-[-3rem] md:-left-[2.2rem]'} w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#D4AF37] shadow-[0_0_20px_#FF8C00] z-10 mt-2 md:mt-0`} />
+                    <div className={`absolute top-0 md:top-1/2 md:-translate-y-1/2 ${isEven ? 'left-[-3.375rem] md:left-auto md:-right-[2.5rem]' : 'left-[-3.375rem] md:-left-[2.5rem]'} w-6 h-6 md:w-8 md:h-8 border border-[#FF8C00]/30 rounded-full animate-ping z-0 mt-0.5 md:mt-0`} />
 
                     {/* Massive Number Overlay */}
-                    <div className={`absolute top-[-40%] ${isEven ? 'right-0' : 'left-0'} text-[8rem] font-black text-white/5 select-none pointer-events-none -z-10`}>
+                    <div className={`absolute top-[-20%] md:top-[-40%] ${isEven ? 'right-0 md:right-0' : 'left-0 md:left-0'} text-[5rem] md:text-[8rem] font-black text-white/5 select-none pointer-events-none -z-10`}>
                       0{i + 1}
                     </div>
 
-                    <h3 className="text-4xl font-black text-white mb-6 uppercase tracking-wider">{step.title}</h3>
-                    <p className="text-xl text-slate-400 font-light leading-relaxed">{step.desc}</p>
+                    <h3 className="text-2xl md:text-4xl font-black text-white mb-4 md:mb-6 uppercase tracking-wider">{step.title}</h3>
+                    <p className="text-base md:text-xl text-slate-400 font-light leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               );
