@@ -5,11 +5,13 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
 import { CursorParticles } from './components/effects/CursorParticles';
+import { ScrollToTop } from './components/layout/ScrollToTop';
 import './styles/globals.css';
 
 function App() {
   return (
     <div className="min-h-screen bg-[#080D1A] font-sans text-slate-200 selection:bg-[#D4AF37] selection:text-[#080D1A]">
+      <ScrollToTop />
       {/* The new Ethereal Cursor Masterpiece */}
         <CursorParticles />
         

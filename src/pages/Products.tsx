@@ -117,11 +117,10 @@ const Products = () => {
                    className="product-card opacity-0 transform-style-3d group cursor-pointer"
                    style={{ transformOrigin: 'center bottom' }}
                 >
-                   {/* Card Container */}
-                   <div className="relative w-full h-[450px] md:h-[550px] rounded-2xl bg-gradient-to-b from-[#111A33] to-[#080D1A] border border-[#D4AF37]/10 overflow-hidden flex flex-col transition-all duration-500 ease-out hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(212,175,55,0.15)] hover:border-[#D4AF37]/50">
+                   <div className="relative w-full rounded-2xl bg-gradient-to-b from-[#111A33] to-[#080D1A] border border-[#D4AF37]/10 overflow-hidden flex flex-col transition-all duration-500 ease-out hover:-translate-y-4 hover:shadow-[0_20px_50px_rgba(212,175,55,0.15)] hover:border-[#D4AF37]/50">
                       
                       {/* Image Area */}
-                      <div className="relative h-[50%] w-full overflow-hidden shrink-0">
+                      <div className="relative h-[220px] md:h-[280px] w-full overflow-hidden shrink-0">
                          {/* Vignette Shadow Overlay */}
                          <div className="absolute inset-0 bg-gradient-to-t from-[#080D1A] via-transparent to-transparent z-10" />
                          <div className="absolute inset-0 bg-[#00B4D8]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay" />
@@ -133,39 +132,39 @@ const Products = () => {
                          />
                          
                          {/* Floating Category Badge */}
-                         <div className="absolute top-5 right-5 z-20 bg-[#080D1A]/60 backdrop-blur-md border border-[#00B4D8]/30 px-4 py-1.5 rounded-sm">
-                            <span className="text-[10px] font-bold tracking-[0.2em] text-[#00B4D8] uppercase">{product.category}</span>
+                         <div className="absolute top-4 right-4 md:top-5 md:right-5 z-20 bg-[#080D1A]/80 backdrop-blur-md border border-[#00B4D8]/30 px-3 py-1 md:px-4 md:py-1.5 rounded-sm">
+                            <span className="text-[9px] md:text-[10px] font-bold tracking-[0.2em] text-[#00B4D8] uppercase">{product.category}</span>
                          </div>
                       </div>
 
                       {/* Content Area */}
-                      <div className="p-8 flex-1 flex flex-col justify-between relative z-20">
+                      <div className="p-6 md:p-8 flex-1 flex flex-col justify-between relative z-20 gap-4">
                          {/* Elegant Hover Underline for the Card */}
                          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#D4AF37] to-[#FF8C00] scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
                          
                          <div>
-                            <h2 className="text-2xl md:text-3xl font-black font-serif text-white mb-3 group-hover:text-[#D4AF37] transition-colors">
+                            <h2 className="text-xl md:text-3xl font-black font-serif text-white mb-2 md:mb-3 group-hover:text-[#D4AF37] transition-colors leading-tight">
                                {product.title}
                             </h2>
-                            <p className="text-sm text-slate-400 font-light leading-relaxed line-clamp-3 group-hover:text-slate-200 transition-colors">
+                            <p className="text-xs md:text-sm text-slate-400 font-light leading-relaxed group-hover:text-slate-200 transition-colors">
                                {product.desc}
                             </p>
                          </div>
 
-                         <div className="flex flex-col gap-4 mt-6">
-                            <div className="flex items-center gap-2 mb-2">
-                              <span className="w-2 h-2 rounded-full bg-[#FF8C00]/50 animate-pulse" />
-                              <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">
+                         <div className="flex flex-col gap-3 md:gap-4 mt-2">
+                            <div className="flex items-center gap-2">
+                              <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#FF8C00]/50 animate-pulse" />
+                              <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">
                                  Material: {product.material}
                               </span>
                             </div>
 
                             <div className="flex justify-between items-end w-full">
-                               <span className="block text-white font-mono tracking-widest text-xl font-black group-hover:text-[#FF8C00] transition-colors">
+                               <span className="block text-white font-mono tracking-widest text-lg md:text-xl font-black group-hover:text-[#FF8C00] transition-colors">
                                   {product.price}
                                </span>
                                
-                               <button className="px-5 py-2 border border-[#FF8C00]/30 text-[#FF8C00] text-xs font-bold uppercase tracking-[0.15em] rounded-sm transition-all duration-300 group-hover:bg-[#FF8C00] group-hover:text-black group-hover:shadow-[0_0_20px_rgba(255,140,0,0.4)]">
+                               <button className="px-4 py-1.5 md:px-5 md:py-2 border border-[#FF8C00]/30 text-[#FF8C00] text-[10px] md:text-xs font-bold uppercase tracking-[0.15em] rounded-sm transition-all duration-300 group-hover:bg-[#FF8C00] group-hover:text-black group-hover:shadow-[0_0_20px_rgba(255,140,0,0.4)]">
                                   Inspecionar
                                </button>
                             </div>

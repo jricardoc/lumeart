@@ -65,7 +65,7 @@ export const Navbar = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: -20 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-full left-0 mt-2 w-full glass rounded-2xl border border-white/10 overflow-hidden shadow-2xl flex flex-col z-10"
+              className="absolute top-full left-0 mt-2 w-full rounded-2xl bg-[#080D1A] border border-[#D4AF37]/20 overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.9)] flex flex-col z-[100]"
             >
               <div className="flex flex-col py-4 px-6 gap-4">
                 {navItems.map((item) => {

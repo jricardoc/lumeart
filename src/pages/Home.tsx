@@ -143,38 +143,36 @@ const Home = () => {
 
       {/* 2. Lâminas da Alquimia (Serviços Fora da Caixa) */}
       <section className="relative z-20 py-32 overflow-hidden">
-        {/* Shard 1 */}
         <div 
-          className="shard-card rotate-left opacity-0 relative w-[110vw] -ml-[5vw] py-16 md:py-20 px-8 md:px-[10vw] mb-24 md:mb-32 bg-gradient-to-r from-[#111A33]/90 to-[#080D1A]/90 backdrop-blur-xl border-t border-b border-[#D4AF37]/20 shadow-[0_0_50px_rgba(212,175,55,0.05)] transition-all duration-700 hover:z-30 hover:!rotate-0 hover:!scale-105"
+          className="shard-card rotate-left opacity-0 relative w-[110vw] -ml-[5vw] py-12 md:py-20 px-6 md:px-[10vw] mb-20 md:mb-32 bg-gradient-to-r from-[#111A33]/90 to-[#080D1A]/90 backdrop-blur-xl border-t border-b border-[#D4AF37]/20 shadow-[0_0_50px_rgba(212,175,55,0.05)] transition-all duration-700 hover:z-30 hover:!rotate-0 hover:!scale-105"
           style={{ clipPath: 'polygon(0 5%, 100% 0, 100% 95%, 0 100%)' }}
         >
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-[#D4AF37]/30 flex items-center justify-center relative shrink-0">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-16">
+            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border border-[#D4AF37]/30 flex items-center justify-center relative shrink-0">
               <div className="absolute inset-0 bg-[#D4AF37]/10 rounded-full blur-xl animate-pulse" />
-              <Settings className="w-10 h-10 md:w-12 md:h-12 text-[#D4AF37]" />
+              <Settings className="w-8 h-8 md:w-12 md:h-12 text-[#D4AF37]" />
             </div>
-            <div className="text-center md:text-left">
-              <h3 className="text-3xl md:text-6xl font-black font-serif text-white mb-4 md:mb-6">Prototipagem de Vanguarda</h3>
-              <p className="text-lg md:text-2xl text-slate-300 font-light leading-relaxed">
+            <div className="text-center md:text-left px-4 md:px-0">
+              <h3 className="text-2xl md:text-6xl font-black font-serif text-white mb-4 md:mb-6 leading-tight">Prototipagem de Vanguarda</h3>
+              <p className="text-sm md:text-2xl text-slate-300 font-light leading-relaxed">
                 Forjando conceitos complexos em filamentos de engenharia (PLA, PETG). Do digital para o tátil, camada por camada com a precisão de um átomo.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Shard 2 */}
         <div 
-          className="shard-card rotate-right opacity-0 relative w-[110vw] -ml-[5vw] py-16 md:py-20 px-8 md:px-[10vw] mb-24 md:mb-32 bg-gradient-to-l from-[#111A33]/90 to-[#080D1A]/90 backdrop-blur-xl border-t border-b border-[#00B4D8]/20 shadow-[0_0_50px_rgba(0,180,216,0.05)] transition-all duration-700 hover:z-30 hover:!rotate-0 hover:!scale-105"
+          className="shard-card rotate-right opacity-0 relative w-[110vw] -ml-[5vw] py-12 md:py-20 px-6 md:px-[10vw] mb-20 md:mb-32 bg-gradient-to-l from-[#111A33]/90 to-[#080D1A]/90 backdrop-blur-xl border-t border-b border-[#00B4D8]/20 shadow-[0_0_50px_rgba(0,180,216,0.05)] transition-all duration-700 hover:z-30 hover:!rotate-0 hover:!scale-105"
           style={{ clipPath: 'polygon(0 0, 100% 5%, 100% 100%, 0 95%)' }}
         >
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 text-center md:text-right">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full border border-[#00B4D8]/30 flex items-center justify-center relative shrink-0">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-center gap-6 md:gap-16 text-center md:text-right">
+            <div className="w-20 h-20 md:w-32 md:h-32 rounded-full border border-[#00B4D8]/30 flex items-center justify-center relative shrink-0">
               <div className="absolute inset-0 bg-[#00B4D8]/10 rounded-full blur-xl animate-pulse" />
-              <Palette className="w-10 h-10 md:w-12 md:h-12 text-[#00B4D8]" />
+              <Palette className="w-8 h-8 md:w-12 md:h-12 text-[#00B4D8]" />
             </div>
-            <div>
-              <h3 className="text-3xl md:text-6xl font-black font-serif text-white mb-4 md:mb-6">Arte & Cenografia</h3>
-              <p className="text-lg md:text-2xl text-slate-300 font-light leading-relaxed">
+            <div className="px-4 md:px-0">
+              <h3 className="text-2xl md:text-6xl font-black font-serif text-white mb-4 md:mb-6 leading-tight">Arte & Cenografia</h3>
+              <p className="text-sm md:text-2xl text-slate-300 font-light leading-relaxed">
                 Arte imersiva em filamentos especiais. Dê vida a esculturas, adereços e cenários gloriosos, dignos da prata das telas de cinema.
               </p>
             </div>
@@ -208,19 +206,19 @@ const Home = () => {
                   key={step.title}
                   className={`timeline-el opacity-0 flex w-full relative ${isEven ? 'md:justify-start' : 'md:justify-end'} justify-start`}
                 >
-                  <div className={`md:w-5/12 ml-12 md:ml-0 relative ${isEven ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
+                  <div className={`md:w-5/12 ml-6 md:ml-0 relative ${isEven ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
                     
                     {/* The glowing node on the spine */}
-                    <div className={`absolute top-0 md:top-1/2 md:-translate-y-1/2 ${isEven ? 'left-[-3rem] md:left-auto md:-right-[2.2rem]' : 'left-[-3rem] md:-left-[2.2rem]'} w-3 h-3 md:w-4 md:h-4 rounded-full bg-[#D4AF37] shadow-[0_0_20px_#FF8C00] z-10 mt-2 md:mt-0`} />
-                    <div className={`absolute top-0 md:top-1/2 md:-translate-y-1/2 ${isEven ? 'left-[-3.375rem] md:left-auto md:-right-[2.5rem]' : 'left-[-3.375rem] md:-left-[2.5rem]'} w-6 h-6 md:w-8 md:h-8 border border-[#FF8C00]/30 rounded-full animate-ping z-0 mt-0.5 md:mt-0`} />
+                    <div className={`absolute top-0 md:top-1/2 md:-translate-y-1/2 ${isEven ? 'left-[-1.5rem] md:left-auto md:-right-[2.2rem]' : 'left-[-1.5rem] md:-left-[2.2rem]'} w-2 h-2 md:w-4 md:h-4 rounded-full bg-[#D4AF37] shadow-[0_0_20px_#FF8C00] z-10 mt-1.5 md:mt-0`} />
+                    <div className={`absolute top-0 md:top-1/2 md:-translate-y-1/2 ${isEven ? 'left-[-1.875rem] md:left-auto md:-right-[2.5rem]' : 'left-[-1.875rem] md:-left-[2.5rem]'} w-5 h-5 md:w-8 md:h-8 border border-[#FF8C00]/30 rounded-full animate-ping z-0 mt-0 md:mt-0`} />
 
                     {/* Massive Number Overlay */}
-                    <div className={`absolute top-[-20%] md:top-[-40%] ${isEven ? 'right-0 md:right-0' : 'left-0 md:left-0'} text-[5rem] md:text-[8rem] font-black text-white/5 select-none pointer-events-none -z-10`}>
+                    <div className={`absolute top-[-10%] md:top-[-40%] ${isEven ? 'right-0' : 'left-0'} text-[4rem] md:text-[8rem] font-black text-white/5 select-none pointer-events-none -z-10`}>
                       0{i + 1}
                     </div>
 
-                    <h3 className="text-2xl md:text-4xl font-black text-white mb-4 md:mb-6 uppercase tracking-wider">{step.title}</h3>
-                    <p className="text-base md:text-xl text-slate-400 font-light leading-relaxed">{step.desc}</p>
+                    <h3 className="text-xl md:text-4xl font-black text-white mb-2 md:mb-6 uppercase tracking-wider">{step.title}</h3>
+                    <p className="text-sm md:text-xl text-slate-400 font-light leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               );
