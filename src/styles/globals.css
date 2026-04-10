@@ -1,84 +1,231 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gold: #d4a853;
+  --color-gold-light: #e8c97a;
+  --color-gold-dark: #b8923d;
+  --color-crystal: #4da6e0;
+  --color-crystal-light: #7ec8f0;
+  --color-neon-purple: #8b5cf6;
+  --color-neon-teal: #2dd4bf;
+  --color-dark: #0a0a0f;
+  --color-surface: #11111e;
+  --color-card: #161628;
+
+  --font-heading: "Orbitron", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-pixel: "Press Start 2P", monospace;
+}
+
 @layer base {
-  :root {
-    --background: 222 47% 7%;
-    --foreground: 213 31% 91%;
-    
-    --navy-deep: #080D1A;
-    --navy-glow: #111A33;
-    --gold: #D4AF37;
-    --copper: #B87333;
-    --magic-orange: #FF8C00;
-    --cyan-ethereal: #00B4D8;
-    --blue-stained: #0077B6;
-    
-    --font-serif: "Cinzel", serif;
-    --font-sans: "Inter", sans-serif;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-[#080D1A] text-slate-200 antialiased overflow-x-hidden;
-    font-family: var(--font-sans);
-    background-image: 
-      radial-gradient(circle at 50% -20%, #111A33 0%, transparent 50%),
-      radial-gradient(circle at 0% 100%, #111A33 0%, transparent 50%);
+    background-color: var(--color-dark);
+    color: #e2e8f0;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif);
-    @apply tracking-wider;
+  ::selection {
+    background-color: rgba(212, 168, 83, 0.3);
+    color: var(--color-gold-light);
   }
 }
 
-@layer components {
-  .glass {
-    @apply bg-white/5 backdrop-blur-md border border-white/10;
-  }
-  
-  .glass-gold {
-    @apply bg-white/5 backdrop-blur-md border border-[#D4AF37]/20 shadow-[0_0_15px_rgba(212,175,55,0.1)];
-  }
-
-  .glow-text {
-    text-shadow: 0 0 10px rgba(212,175,55,0.5), 0 0 20px rgba(212,175,55,0.2);
-  }
-
-  .noise-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: "";
-    opacity: 0.05;
-    z-index: -1;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
+/* ═══════════════════════════════════════
+   CRT SCAN LINES
+   ═══════════════════════════════════════ */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.012) 2px,
+    rgba(0, 0, 0, 0.012) 4px
+  );
 }
 
+/* ═══════════════════════════════════════
+   GRADIENT SCROLLBAR
+   ═══════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-dark); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-gold), var(--color-neon-purple));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-gold-light), var(--color-crystal));
+}
+
+/* Hidden until animated */
+.anim { opacity: 0; }
+
+/* ═══════════════════════════════════════
+   KEYFRAMES
+   ═══════════════════════════════════════ */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.1); }
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 25px rgba(212,168,83,0.2)); }
+  50% { filter: drop-shadow(0 0 45px rgba(212,168,83,0.4)); }
 }
 
-.glow-orb {
-  @apply absolute rounded-full blur-[100px];
-  animation: glow-pulse 10s ease-in-out infinite;
+@keyframes glitch-text {
+  0%, 90%, 100% { opacity: 1; transform: translate(0); filter: none; }
+  91% { opacity: 0.8; transform: translate(3px, -1px); filter: hue-rotate(90deg); }
+  92% { opacity: 0.6; transform: translate(-3px, 1px); filter: hue-rotate(-90deg); }
+  93% { opacity: 0.9; transform: translate(1px, 2px) skewX(1deg); }
+  94% { opacity: 1; transform: translate(0); filter: none; }
 }
 
-.mask-radial {
-  mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
-  -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.4; }
+}
+
+@keyframes energy-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--pulse-color, rgba(212,168,83,0.4)); }
+  50% { box-shadow: 0 0 20px 4px var(--pulse-color, rgba(212,168,83,0.12)); }
+}
+
+@keyframes chromatic-shift {
+  0%, 100% { text-shadow: 0 0 transparent; }
+  25% { text-shadow: -2px 0 rgba(255,0,50,0.15), 2px 0 rgba(0,100,255,0.15); }
+  75% { text-shadow: 2px 0 rgba(255,0,50,0.15), -2px 0 rgba(0,100,255,0.15); }
+}
+
+@keyframes scan-line {
+  0% { top: -5%; }
+  100% { top: 105%; }
+}
+
+@keyframes typing-cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ═══════════════════════════════════════
+   UTILITY ANIMATION CLASSES
+   ═══════════════════════════════════════ */
+.animate-float { animation: float 5s ease-in-out infinite; }
+.animate-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-glitch { animation: glitch-text 5s ease-in-out infinite; }
+.animate-chromatic { animation: chromatic-shift 4s ease-in-out infinite; }
+.animate-energy-pulse { animation: energy-pulse 2s ease-in-out infinite; }
+.animate-neon-flicker { animation: neon-flicker 3s ease-in-out infinite; }
+
+/* ═══════════════════════════════════════
+   GRADIENT TEXT
+   ═══════════════════════════════════════ */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-crystal), var(--color-neon-purple), var(--color-gold));
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* ═══════════════════════════════════════
+   HOLOGRAPHIC BORDER
+   ═══════════════════════════════════════ */
+.holographic-border {
+  position: relative;
+}
+.holographic-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-crystal), var(--color-neon-purple), var(--color-gold));
+  background-size: 300% 100%;
+  animation: gradient-shift 4s linear infinite;
+  z-index: -1;
+  opacity: 0.25;
+  transition: opacity 0.3s;
+}
+.holographic-border:hover::before {
+  opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════
+   CARD SHINE EFFECT
+   ═══════════════════════════════════════ */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(212, 168, 83, 0.04) 40%,
+    rgba(212, 168, 83, 0.1) 50%,
+    rgba(212, 168, 83, 0.04) 60%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+  pointer-events: none;
+}
+.card-shine:hover::after {
+  transform: translateX(60%);
+}
+
+/* ═══════════════════════════════════════
+   STAT BAR (Team character select)
+   ═══════════════════════════════════════ */
+.stat-bar-fill {
+  width: 0%;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.team-card:hover .stat-bar-fill {
+  width: var(--stat-w);
+}
+
+/* ═══════════════════════════════════════
+   MOBILE: disable complex hover effects
+   ═══════════════════════════════════════ */
+@media (hover: none) and (pointer: coarse) {
+  .card-shine::after {
+    display: none;
+  }
 }
