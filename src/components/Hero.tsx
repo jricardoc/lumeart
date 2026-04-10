@@ -202,7 +202,7 @@ export default function Hero({ ready = true }: Props) {
             href="https://www.instagram.com/lume.art3d"
             target="_blank"
             rel="noopener noreferrer"
-            className="hero-cta group relative inline-flex items-center gap-2 px-8 py-3.5 bg-gold hover:bg-gold-light text-dark font-heading font-bold text-[11px] sm:text-xs uppercase tracking-[0.15em] rounded-lg transition-all duration-300 hover:shadow-[0_0_40px_rgba(212,168,83,0.35)] opacity-0 overflow-hidden"
+            className="hero-cta group relative inline-flex items-center gap-2 px-8 py-3.5 bg-gold hover:bg-gold-light text-dark font-heading font-bold text-sm uppercase tracking-[0.15em] rounded-lg transition-all duration-300 hover:shadow-[0_0_40px_rgba(212,168,83,0.35)] opacity-0 overflow-hidden"
           >
             <span className="relative z-10">Solicitar Orçamento</span>
             {/* Shine sweep on hover */}
@@ -210,7 +210,7 @@ export default function Hero({ ready = true }: Props) {
           </a>
           <a
             href="#servicos"
-            className="hero-cta inline-flex items-center gap-2 px-8 py-3.5 border border-gold/25 text-gold hover:bg-gold/10 font-heading font-bold text-[11px] sm:text-xs uppercase tracking-[0.15em] rounded-lg transition-all duration-300 opacity-0 hover:border-gold/50 hover:shadow-[0_0_25px_rgba(212,168,83,0.15)]"
+            className="hero-cta inline-flex items-center gap-2 px-8 py-3.5 border border-gold/25 text-gold hover:bg-gold/10 font-heading font-bold text-sm uppercase tracking-[0.15em] rounded-lg transition-all duration-300 opacity-0 hover:border-gold/50 hover:shadow-[0_0_25px_rgba(212,168,83,0.15)]"
           >
             Nossos Serviços
           </a>
@@ -219,7 +219,7 @@ export default function Hero({ ready = true }: Props) {
         {/* Scroll indicator */}
         <div className="hero-scroll mt-14 lg:mt-20 opacity-0">
           <div className="flex flex-col items-center gap-2">
-            <span className="font-pixel text-[7px] text-gold/30 tracking-widest">
+            <span className="font-pixel text-[0.875rem] text-gold/30 tracking-widest">
               SCROLL
             </span>
             <ChevronDown className="text-gold/40" size={20} />

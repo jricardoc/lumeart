@@ -75,7 +75,7 @@ export default function Marketplaces() {
                 {p.name}
               </span>
               {p.soon ? (
-                <span className="text-[10px] text-gray-500 uppercase tracking-widest mt-3 font-pixel animate-glitch">
+                <span className="text-[0.875rem] text-gray-500 uppercase tracking-widest mt-3 font-pixel animate-glitch">
                   Em breve
                 </span>
               ) : (

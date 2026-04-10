@@ -8,7 +8,7 @@ export default function SectionTitle({ tag, title, light }: Props) {
   return (
     <div className="text-center mb-12 lg:mb-16 anim">
       {/* Tag with glitch animation */}
-      <span className="font-pixel text-[9px] sm:text-[10px] text-gold/40 tracking-[0.3em] uppercase block mb-3 animate-glitch">
+      <span className="font-pixel text-[0.875rem] text-gold/40 tracking-[0.3em] uppercase block mb-3 animate-glitch">
         {'// '}{tag}
       </span>
 

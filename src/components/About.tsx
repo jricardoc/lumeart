@@ -59,7 +59,7 @@ function CounterCard({
         <Icon size={22} className="text-gold" />
       </div>
       <div>
-        <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-medium">
+        <p className="text-[0.875rem] text-gray-500 uppercase tracking-[0.2em] font-medium">
           {label}
         </p>
         <p className="text-white font-semibold text-lg font-heading tracking-wider">

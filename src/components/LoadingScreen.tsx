@@ -108,7 +108,7 @@ export default function LoadingScreen({ onComplete }: Props) {
         />
 
         {/* Loading text */}
-        <p className="loading-text-main font-pixel text-[8px] sm:text-[9px] text-gold/60 tracking-[0.2em] mb-6 opacity-0 h-4">
+        <p className="loading-text-main font-pixel text-[0.6rem] sm:text-[0.875rem] text-gold/60 tracking-[0.2em] mb-6 opacity-0 h-6">
           {loadingTexts[textIdx]}
         </p>
 
@@ -134,13 +134,13 @@ export default function LoadingScreen({ onComplete }: Props) {
             />
           </div>
           <div className="flex justify-between mt-2 px-1">
-            <span className="font-pixel text-[7px] text-gold/25">LV.1</span>
-            <span className="font-pixel text-[8px] text-gold/40">{progress}%</span>
+            <span className="font-pixel text-[0.6rem] sm:text-[0.875rem] text-gold/25">LV.1</span>
+            <span className="font-pixel text-[0.6rem] sm:text-[0.875rem] text-gold/40">{progress}%</span>
           </div>
         </div>
 
         {/* Skip hint */}
-        <p className="font-pixel text-[6px] sm:text-[7px] text-gray-600 mt-8 tracking-widest animate-pulse">
+        <p className="font-pixel text-[0.5rem] sm:text-[0.75rem] text-gray-600 mt-8 tracking-widest animate-pulse">
           CLICK TO SKIP
         </p>
       </div>
