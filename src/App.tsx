@@ -1,36 +1,25 @@
-import { useState, useCallback } from 'react';
-import LoadingScreen from './components/LoadingScreen';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Process from './components/Process';
-import Marketplaces from './components/Marketplaces';
-import Team from './components/Team';
-import Workshop from './components/Workshop';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
+import CartPage from './pages/CartPage';
+import CartDrawer from './components/CartDrawer';
+import { CartProvider } from './context/CartContext';
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
-
-  const handleLoadingComplete = useCallback(() => {
-    setLoading(false);
-  }, []);
-
   return (
-    <>
-      {loading && <LoadingScreen onComplete={handleLoadingComplete} />}
+    <CartProvider>
       <Header />
-      <main>
-        <Hero ready={!loading} />
-        <About />
-        <Services />
-        <Process />
-        <Marketplaces />
-        <Team />
-        <Workshop />
-      </main>
+      <CartDrawer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/produtos" element={<Products />} />
+        <Route path="/produtos/:id" element={<ProductDetail />} />
+        <Route path="/carrinho" element={<CartPage />} />
+      </Routes>
       <Footer />
-    </>
+    </CartProvider>
   );
 }

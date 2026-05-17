@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { animate, stagger, createTimeline } from 'animejs';
 import { ChevronDown } from 'lucide-react';
 import logo from '../assets/logo.png';
@@ -9,11 +9,8 @@ interface Props {
 }
 
 export default function Hero({ ready = true }: Props) {
-  const hasAnimated = useRef(false);
-
   useEffect(() => {
-    if (!ready || hasAnimated.current) return;
-    hasAnimated.current = true;
+    if (!ready) return;
 
     const timer = setTimeout(() => {
       const tl = createTimeline({ defaults: { ease: 'outExpo' } });

@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useLocation, Link } from 'react-router-dom';
+import { Menu, X, ShoppingCart } from 'lucide-react';
 import { animate, stagger } from 'animejs';
 import logo from '../assets/logo.png';
+import { useCart } from '../context/CartContext';
 
 function InstagramIcon({ size = 18 }: { size?: number }) {
   return (
@@ -14,19 +16,33 @@ function InstagramIcon({ size = 18 }: { size?: number }) {
 }
 
 const navLinks = [
-  { label: 'Início', href: '#inicio' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Serviços', href: '#servicos' },
-  { label: 'Processo', href: '#processo' },
-  { label: 'Equipe', href: '#equipe' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Início', id: 'inicio', href: '/#inicio' },
+  { label: 'Sobre', id: 'sobre', href: '/#sobre' },
+  { label: 'Serviços', id: 'servicos', href: '/#servicos' },
+  { label: 'Produtos', id: 'produtos', href: '/produtos' },
+  { label: 'Equipe', id: 'equipe', href: '/#equipe' },
 ];
 
 export default function Header() {
+  const location = useLocation();
+  const { itemCount, toggleCart } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('#inicio');
+  const [activeSection, setActiveSection] = useState(location.pathname.startsWith('/produtos') ? '/produtos' : '/#inicio');
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    if (itemCount > 0) {
+      setIsAnimating(true);
+      const timer = setTimeout(() => setIsAnimating(false), 300);
+      return () => clearTimeout(timer);
+    }
+  }, [itemCount]);
+
+  useEffect(() => {
+    setActiveSection(location.pathname.startsWith('/produtos') ? '/produtos' : location.hash || '/#inicio');
+  }, [location]);
 
   useEffect(() => {
     const handler = () => {
@@ -34,18 +50,20 @@ export default function Header() {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       setScrollProgress(docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0);
 
-      const sections = navLinks.map((l) => l.href.slice(1));
+      if (location.pathname === '/produtos') return;
+
+      const sections = navLinks.filter(l => l.id && l.id !== 'produtos').map((l) => l.id);
       for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
+        const el = document.getElementById(sections[i]!);
         if (el && el.getBoundingClientRect().top <= 120) {
-          setActiveSection(`#${sections[i]}`);
+          setActiveSection(`/#${sections[i]}`);
           break;
         }
       }
     };
     window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -95,7 +113,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <a href="#inicio" className="flex items-center gap-3 group">
+            <Link to="/#inicio" className="flex items-center gap-3 group">
               <img
                 src={logo}
                 alt="LumeArt"
@@ -104,14 +122,14 @@ export default function Header() {
               <span className="font-heading text-sm lg:text-base font-bold text-gold tracking-[0.15em]">
                 LUMEART
               </span>
-            </a>
+            </Link>
 
             {/* Desktop nav */}
             <nav className="hidden md:flex items-center gap-6 lg:gap-8">
               {navLinks.map((l) => (
-                <a
+                <Link
                   key={l.href}
-                  href={l.href}
+                  to={l.href}
                   className={`relative text-sm uppercase tracking-[0.18em] font-medium transition-colors duration-300
                     after:absolute after:bottom-[-4px] after:left-0 after:h-px after:transition-all after:duration-300
                     ${
@@ -121,12 +139,25 @@ export default function Header() {
                     }`}
                 >
                   {l.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
             {/* Right side */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <button 
+                onClick={() => toggleCart(true)}
+                className="relative p-2 text-gray-400 hover:text-gold transition-colors duration-300 cursor-pointer"
+                aria-label="Carrinho"
+              >
+                <ShoppingCart size={20} className={`${isAnimating ? 'scale-125 text-gold' : ''} transition-transform duration-300`} />
+                {itemCount > 0 && (
+                  <span className="absolute top-0.5 right-0.5 w-4 h-4 bg-gold text-dark text-[10px] font-black flex items-center justify-center rounded-full animate-in zoom-in">
+                    {itemCount}
+                  </span>
+                )}
+              </button>
+              
               <a
                 href="https://www.instagram.com/lume.art3d"
                 target="_blank"
@@ -185,12 +216,12 @@ export default function Header() {
             style={{ paddingTop: 'env(safe-area-inset-top, 0px)', marginTop: 'env(safe-area-inset-top, 0px)' }}
           >
             {/* Logo in menu */}
-            <a href="#inicio" onClick={() => setOpen(false)} className="flex items-center gap-3">
+            <Link to="/#inicio" onClick={() => setOpen(false)} className="flex items-center gap-3">
               <img src={logo} alt="LumeArt" className="h-9 w-9 animate-glow" />
               <span className="font-heading text-sm font-bold text-gold tracking-[0.15em]">
                 LUMEART
               </span>
-            </a>
+            </Link>
 
             {/* Close button — X in the same spot as hamburger */}
             <button
@@ -220,9 +251,9 @@ export default function Header() {
               {navLinks.map((l, i) => {
                 const isActive = activeSection === l.href;
                 return (
-                  <a
+                  <Link
                     key={l.href}
-                    href={l.href}
+                    to={l.href}
                     onClick={() => setOpen(false)}
                     className={`mobile-link group relative flex items-center gap-4 py-3.5 px-4 rounded-lg opacity-0 transition-all duration-300
                       ${isActive
@@ -251,7 +282,7 @@ export default function Header() {
                     }`}>
                       →
                     </span>
-                  </a>
+                  </Link>
                 );
               })}
             </nav>

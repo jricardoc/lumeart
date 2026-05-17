@@ -26,7 +26,7 @@ const members = [
   },
   {
     name: 'Natália Barreto',
-    role: 'Co-fundadora & Dentista (UFBA)',
+    role: 'Co-fundadora & Dentista',
     tag: 'PLAYER 2',
     class: 'CREATIVE HEALER',
     bio: 'Responsável pela gestão, criatividade e atendimento ao cliente. O olhar artístico e estratégico por trás da marca.',

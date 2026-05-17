@@ -54,7 +54,7 @@ export default function Process() {
   const [activeStep, setActiveStep] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [impactStep, setImpactStep] = useState(-1);
-  const cycleRef = useRef<NodeJS.Timeout | null>(null);
+  const cycleRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const ref = useScrollReveal((el) => {
     setRevealed(true);
